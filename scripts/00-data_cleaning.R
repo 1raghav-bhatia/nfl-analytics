@@ -42,9 +42,16 @@ qb_regular_season_stats_data_18_to_22 <-
   qb_regular_season_stats_data |>
   filter(2018 <= season & season <= 2022)
 
+qb_regular_season_stats_data_2023 <- 
+  qb_regular_season_stats_data |>
+  filter(season == 2023) |>
+  select(-EPA_post)
+
 
 #### Save data ####
 
 write_csv(qb_regular_season_stats_data_18_to_22,
               "data/cleaned_data/qb_regular_season_data.csv")
+write_csv(qb_regular_season_stats_data_2023,
+          "data/cleaned_data/qb_regular_current_season_data.csv")
 
